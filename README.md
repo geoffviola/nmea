@@ -1,2 +1,2 @@
-# raw_nmea
+# nmea
 ROS package for NMEA messaging
