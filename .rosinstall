@@ -1,0 +1,2 @@
+ - git: {local-name: nmea_lib, uri: 'https://github.com/geoffviola/nmea_lib.git', version: 'master'}
+ - git: {local-name: enu, uri: 'https://github.com/clearpathrobotics/enu.git', version: 'hydro'}
