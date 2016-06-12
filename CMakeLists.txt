@@ -9,7 +9,7 @@ add_message_files(FILES avr.msg gga.msg hdt.msg vtg.msg)
 generate_messages(DEPENDENCIES std_msgs sensor_msgs)
 
 catkin_package(
-    CATKIN_DEPENDS message_runtime std_msgs sensor_msgs tf
+    CATKIN_DEPENDS angles message_runtime nmea_msgs std_msgs sensor_msgs tf
 )
 
 include_directories(${catkin_INCLUDE_DIRS})
