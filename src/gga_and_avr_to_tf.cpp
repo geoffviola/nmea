@@ -5,8 +5,8 @@
 #include <tf/transform_broadcaster.h>
 #include <ros/callback_queue.h>
 #include <tf/transform_listener.h>
-#include "raw_nmea/gga.h"
-#include "raw_nmea/avr.h"
+#include "nmea/gga.h"
+#include "nmea/avr.h"
 #include "utilities.hpp"
 #include "local_pose_2_5_d.hpp"
 #include "origin_acquirer_gga.hpp"
@@ -31,7 +31,7 @@ public:
         get_transform(GNSS_frame_ID, this->outputTFFrameName);
   }
 
-  inline void GgaCallback(raw_nmea::gga const &message)
+  inline void GgaCallback(nmea::gga const &message)
   {
     auto const xyz =
         get_xyz(this->origin.latitudeDeg, this->origin.longitudeDeg,
@@ -44,7 +44,7 @@ public:
       this->state.z = get<2>(xyz);
     }
 
-    if (raw_nmea::gga::INVALID != message.fix_quality)
+    if (nmea::gga::INVALID != message.fix_quality)
     {
       LocalPose2_5D const local_pose(this->GetState());
       auto const world_to_gnss_transform = get_transform(
@@ -60,9 +60,9 @@ public:
     }
   }
 
-  inline void AvrCallback(raw_nmea::avr const &message)
+  inline void AvrCallback(nmea::avr const &message)
   {
-    if (raw_nmea::avr::INVALID == message.fix_quality)
+    if (nmea::avr::INVALID == message.fix_quality)
     {
       ROS_WARN("Not sure how to handle AVR mode INVALID");
     }

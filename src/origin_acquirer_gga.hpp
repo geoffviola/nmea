@@ -2,7 +2,7 @@
 #define ORIGIN_ACQUIRER_GGA_HPP
 
 #include <atomic>
-#include "raw_nmea/gga.h"
+#include "nmea/gga.h"
 #include "lla.hpp"
 
 class OriginAcquirerGga
@@ -13,7 +13,7 @@ public:
   {
   }
 
-  inline void Callback(raw_nmea::gga const &message)
+  inline void Callback(nmea::gga const &message)
   {
     this->lla = Lla(message.latitude, message.longitude, message.altitude);
     this->originAcquired = true;

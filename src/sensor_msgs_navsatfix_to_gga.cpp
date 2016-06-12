@@ -58,16 +58,16 @@ nmea::gga nsf_to_gga_ros_msg(sensor_msgs::NavSatFix const &message)
   ros_msg.fix_quality = REAL_TIME_KINEMATIC;
   ros_msg.num_satellites = 8;
   ros_msg.hdop = 1.0;
-  ros_msg.altitude = message.altitude + 0; // raw_msg.geoidHeight;
-  /*    ros_msg.time_since_last_dgps_valid = raw_msg.timeSinceLastDgpsValid;
-      if (raw_msg.timeSinceLastDgpsValid)
+  ros_msg.altitude = message.altitude + 0; // msg.geoidHeight;
+  /*    ros_msg.time_since_last_dgps_valid = msg.timeSinceLastDgpsValid;
+      if (msg.timeSinceLastDgpsValid)
       {
-          ros_msg.time_since_last_dgps.fromSec(raw_msg.timeSinceLastDgps);
+          ros_msg.time_since_last_dgps.fromSec(msg.timeSinceLastDgps);
       }
-      ros_msg.dgps_station_id_valid = raw_msg.dgpdStationIDValid;
-      if (raw_msg.dgpdStationIDValid)
+      ros_msg.dgps_station_id_valid = msg.dgpdStationIDValid;
+      if (msg.dgpdStationIDValid)
       {
-          ros_msg.dgps_station_id = raw_msg.dgpdStationID;
+          ros_msg.dgps_station_id = msg.dgpdStationID;
       }*/
   return ros_msg;
 }
