@@ -12,9 +12,7 @@ catkin_package(
     CATKIN_DEPENDS message_runtime std_msgs sensor_msgs tf
 )
 
-message("${nmea_lib_INCLUDE_DIRS};${nmealib_INCLUDE_DIRS}")
-message("enu_INCLUDE_DIRS = ${enu_INCLUDE_DIRS}")
-include_directories(${enu_INCLUDE_DIRS} ${nmea_lib_INCLUDE_DIRS})
+include_directories(${catkin_INCLUDE_DIRS})
 
 add_definitions("-std=c++11 -Wall -Werror")
 
